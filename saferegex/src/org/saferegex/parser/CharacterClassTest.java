@@ -40,6 +40,12 @@ public class CharacterClassTest extends
     }
     
     @Test
+    public void mixedCharacterClassWithUnion() {
+        assertMatchWithRE("[$3210765498DEFGABCLMNOHIJKUTWVQPSR_YXZfgdebcanolmjkhiwvutsrqpzyx]", 
+            "[$\\w]");
+    }
+    
+    @Test
     public void atomBeforeCharacterClass() {
         assertMatchWithRE("abca", "abc[a]");
         assertMatchWithRE("abc[fgdeh]", "abc[d-h]");

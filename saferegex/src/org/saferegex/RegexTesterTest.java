@@ -64,7 +64,7 @@ public class RegexTesterTest {
             "([a-z0-9]+([\\-a-z0-9]*[a-z0-9]+)?){1,63}(\\.[a-z0-9]{2,7})+$"));
        assertTrue(RegexTester.isVulnerable("^\\d*[0-9](|.\\d*[0-9]|)*$"));
        assertTrue(RegexTester.isVulnerable("^[a-zA-Z]+(([\\'\\,\\.\\- ][a-zA-Z ])?" +
-       		"[a-zA-Z]*)*\\s+&lt;(A-Za-z_[-._A-Za-z_]*A-Za-z_@A-Za-z_[-._A-Za-z_]*A-Za-z_\\.A-Za-z_{2,3})&gt;$|^" +
-       		"(A-Za-z_[-._A-Za-z_]*A-Za-z_@A-Za-z_[-._A-Za-z_]*A-Za-z_\\.A-Za-z_{2,3})$")); 
+       		"[a-zA-Z]*)*\\s+&lt;(\\w[-._\\w]*\\w@\\w[-._\\w]*\\w\\.\\w{2,3})&gt;$|^" +
+       		"(\\w[-._\\w]*\\w@\\w[-._\\w]*\\w\\.\\w{2,3})$")); 
    }
 }

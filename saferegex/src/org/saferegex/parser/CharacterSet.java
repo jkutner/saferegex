@@ -24,4 +24,14 @@ public class CharacterSet extends HashSet<Character>{
         }
         return set;
     }
+    
+    public CharacterSet inverted() {
+    	CharacterSet inverse = new CharacterSet(128 - size());
+    	for(int i = 0; i < 128; ++i) {
+    		if(!contains((char)i)) {
+    			inverse.add((char)i);
+    		}
+    	}
+    	return inverse;
+    }
 }

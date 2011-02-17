@@ -27,7 +27,13 @@ public class CharacterClassParser {
                 source.error("Missing ']' at the end of character class.");
             }
             if (source.startWith('\\')) {
-                set.add(EscapeCharacterScanner.unescapeCurrent(source));
+            	if(source.length() > 1 && "dwsDWS".indexOf(source.charAt(1)) != -1) {
+            		CharacterSet subset = 
+            			predefinedCharacterClass(source).toSet();
+            		set.addAll(including ? subset : subset.inverted());
+            	} else {
+            		set.add(EscapeCharacterScanner.unescapeCurrent(source));
+            	}
             } else if (source.length() >= 3
                     && source.charAt(1) == '-') {
                 set.addAll(parseRange(source));

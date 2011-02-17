@@ -131,4 +131,12 @@ public class CharacterClass implements Expression {
             return self.hashCode();
         }
     }
+
+	public CharacterSet toSet() {
+		if(including) {
+			return set;
+		} else {
+			return set.inverted();
+		}
+	}
 }
