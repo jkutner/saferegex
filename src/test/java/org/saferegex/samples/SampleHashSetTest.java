@@ -21,7 +21,7 @@ public class SampleHashSetTest {
     @Test
     public void sampleToString() {
         assertEquals(2, s.size());
-        assertEquals("[bc, a]", s.toString());
+        assertEquals("[a, bc]", s.toString());
     }
     
     @Test
@@ -30,24 +30,24 @@ public class SampleHashSetTest {
         s.add("de");
         assertTrue(s.isFull());
         s.add("ef");
-        assertEquals("[de, bc, a]", s.toString());
+        assertEquals("[a, bc, de]", s.toString());
     }
     
     @Test
     public void testAddAllOfSamples() {
         s.addAll(new AtomSamples("de"));
-        assertEquals("[de, bc, a]", s.toString());
+        assertEquals("[a, bc, de]", s.toString());
         assertTrue(s.isFull());
         s.addAll(new AtomSamples("de"));
-        assertEquals("[de, bc, a]", s.toString());
+        assertEquals("[a, bc, de]", s.toString());
     }
     
     @Test
     public void testAddAllOfCollection() {
         s.addAll(Collections.singleton("de"));
-        assertEquals("[de, bc, a]", s.toString());
+        assertEquals("[a, bc, de]", s.toString());
         assertTrue(s.isFull());
         s.addAll(Collections.singleton("ef"));
-        assertEquals("[de, bc, a]", s.toString());
+        assertEquals("[a, bc, de]", s.toString());
     }
 }

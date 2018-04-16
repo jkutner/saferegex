@@ -17,7 +17,7 @@ public class ExhaustiveFixedRepetitionTest {
     
     @Test
     public void characterClass() {
-        assertEquals("[b, c, a]", 
+        assertEquals("[a, b, c]",
             strategy.characterClass(CharacterSet.of("abc"), 
                 true).toString());
         SampleSet s = new SampleHashSet(128, 
@@ -36,7 +36,7 @@ public class ExhaustiveFixedRepetitionTest {
         assertEquals("[, abc]", 
             strategy.optional(new AtomSamples("abc")).toString());
         SampleSet s = new SampleHashSet(2, new AtomSamples("a"), new AtomSamples("b"));
-        assertEquals("[, b, a]", 
+        assertEquals("[, a, b]",
             strategy.optional(s).toString());
     }
     
@@ -53,7 +53,7 @@ public class ExhaustiveFixedRepetitionTest {
         Samples b = new AtomSamples("de");
         assertEquals("[abcde]", strategy.sequence(a, b).toString());
         SampleSet s = new SampleHashSet(3, a, b, new AtomSamples("f"));
-        assertEquals("[deghij, fghij]", strategy.sequence(
+        assertEquals("[fghij, deghij]", strategy.sequence(
             s, new AtomSamples("ghij")).toString());
     }
     

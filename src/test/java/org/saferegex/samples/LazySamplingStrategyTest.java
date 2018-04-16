@@ -22,7 +22,7 @@ public class LazySamplingStrategyTest {
     
     @Test
     public void characterClass() {
-        assertEquals("[b, c, a]", 
+        assertEquals("[a, b, c]",
             strategy.characterClass(CharacterSet.of("abc"), 
                 true).toString());
         SampleSet s = new SampleHashSet(128, 
@@ -41,7 +41,7 @@ public class LazySamplingStrategyTest {
         assertEquals("[abc, ]", 
             strategy.optional(new AtomSamples("abc")).toString());
         SampleSet s = new SampleHashSet(2, new AtomSamples("a"), new AtomSamples("b"));
-        assertEquals("[b, a, ]", 
+        assertEquals("[a, b, ]",
             strategy.optional(s).toString());
     }
     
