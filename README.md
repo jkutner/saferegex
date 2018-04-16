@@ -6,7 +6,7 @@ approach similar to model checking. This makes it much more effective than plain
 
 ## Usage
 
-Run the executable JAR against an [evil regex](https://www.owasp.org/index.php/Regular_expression_Denial_of_Service_-_ReDoS)
+Run the executable JAR against an [evil regex](https://www.owasp.org/index.php/Regular_expression_Denial_of_Service_-_ReDoS):
 
 ```sh-session
 $ java -jar saferegex.jar "(a|aa)+"
@@ -21,14 +21,15 @@ Sample input: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
 Or a safe regex:
 
 ```sh-session
-$ java -jar saferegex.jar "(a|aa)"
+$ java -jar saferegex.jar "(ht|f)tp(s?)\:\/\/[0-9a-zA-Z]([-.a-zA-Z_]*[0-9a-zA-Z])*(:(0-9)*)?(\/?)([a-zA-Z0-9\-\.\?\,\:\'\/\\\+=&amp;%\$#_]*)?"
 
-Testing: (a|aa)
-2 samples found.
-
-Tests: 2
+Testing: (ht|f)tp(s?)\:\/\/[0-9a-zA-Z]([-.a-zA-Z_]*[0-9a-zA-Z])*(:(0-9)*)?(\/?)([a-zA-Z0-9\-\.\?\,\:\'\/\\\+=&amp;%\$#_]*)?
+More than 10000 samples found.
+************************************************************************************************************************************************************************************************************
+*****************************************************************************************************************************
+Tests: 3297
 Broken samples: 0
-This expression is not vulnerable.
+This expression is probably not vulnerable for sample sizes < 10000
 ```
 
 ## History
