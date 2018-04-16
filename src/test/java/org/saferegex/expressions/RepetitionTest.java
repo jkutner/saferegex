@@ -54,11 +54,11 @@ public class RepetitionTest {
     @Test
     public void substitutionSamples() {
         RecursiveRepetition r = RecursiveRepetition.of(Atom.of("a"), 0, 5);
-        assertEquals("[, aa, aaa, aaaaa, a, aaaa]", 
+        assertEquals("[aa, aaa, , a, aaaa, aaaaa]",
             r.substitution().samples(fixed).toString());
-        assertEquals("[, aa, aaa, aaaaa, a, aaaa]", 
+        assertEquals("[aa, aaa, , a, aaaa, aaaaa]",
             r.samples(varying).toString());
-        assertEquals("[aaaaa, aaa, aaaa]", 
+        assertEquals("[aaa, aaaa, aaaaa]",
             RecursiveRepetition.of(Atom.of("a"), 3, 5).samples(varying).toString());
         assertEquals("[aaaaa]", 
             IterativeRepetition.of(Atom.of("a"), 5, 5).samples(varying).toString());

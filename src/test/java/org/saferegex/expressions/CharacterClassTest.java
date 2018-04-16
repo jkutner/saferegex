@@ -26,7 +26,7 @@ public class CharacterClassTest {
 
    @Test
    public void shouldSampleCharacter() {
-       assertEquals("[b, c, a]", CharacterClass.including("abc")
+       assertEquals("[a, b, c]", CharacterClass.including("abc")
            .samples(strategy).toString());
        Samples samples = CharacterClass.excluding("abc")
            .samples(strategy);
@@ -72,9 +72,9 @@ public class CharacterClassTest {
 
    @Test
    public void testToString() {
-       assertEquals("[dbca]", 
+       assertEquals("[abcd]",
            CharacterClass.including("abcd").toString());
-       assertEquals("[^dbca]", 
+       assertEquals("[^abcd]",
            CharacterClass.excluding("abcd").toString());
    }
    

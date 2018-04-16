@@ -25,7 +25,7 @@ public class SequenceTest {
         */
         Sequence s2 = Sequence.of(Atom.of("abc"), 
             CharacterClass.including("abcdefg"));
-        assertEquals("[abca, abcg, abcf, abce, abcd, abcc, abcb]", 
+        assertEquals("[abca, abcg, abcf, abcc, abcb, abce, abcd]",
             s2.samples(strategy).toString());
         Sequence s3 = Sequence.of(Atom.of("abc"), 
             Option.of(Atom.of("cde"), Atom.of("cdef")));
