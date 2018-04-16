@@ -14,46 +14,46 @@ public class CharacterClassTest extends
     
     @Test
     public void characterClass() {
-        assertMatchWithRE("[bca]", "[abc]");
+        assertMatchWithRE("[abc]", "[abc]");
     }
     
     @Test
     public void nonCharacterClass() {
-        assertMatchWithRE("[^bca]", "[^abc]");
+        assertMatchWithRE("[^abc]", "[^abc]");
     }
     
     @Test
     public void characterClassWithEscapeCharacter() {
-        assertMatchWithRE("[\\\tba]", "[\tab\\\\]");
+        assertMatchWithRE("[\tab\\]", "[\tab\\\\]");
     }
     
     @Test
     public void characterClassWithRange() {
-        assertMatchWithRE("[fgdebcanolmjkhiwvutsrqpzyx]", 
+        assertMatchWithRE("[abcdefghijklmnopqrstuvwxyz]",
             "[a-z]");
     }
     
     @Test
     public void mixedCharacterClassWithRange() {
-        assertMatchWithRE("[^dbca\t]", 
+        assertMatchWithRE("[^abcd\t]",
             "[^a-d\\tcd]");
     }
     
     @Test
     public void mixedCharacterClassWithUnion() {
-        assertMatchWithRE("[$3210765498DEFGABCLMNOHIJKUTWVQPSR_YXZfgdebcanolmjkhiwvutsrqpzyx]", 
+        assertMatchWithRE("[$0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz]",
             "[$\\w]");
     }
     
     @Test
     public void atomBeforeCharacterClass() {
         assertMatchWithRE("abca", "abc[a]");
-        assertMatchWithRE("abc[fgdeh]", "abc[d-h]");
+        assertMatchWithRE("abc[hdefg]", "abc[d-h]");
     }
     
     @Test
     public void atomAfterCharacterClass() {
-        assertMatchWithRE("[ba]cde", "[ab]cde");
+        assertMatchWithRE("[ab]cde", "[ab]cde");
     }
     
     @Test
@@ -63,14 +63,14 @@ public class CharacterClassTest extends
     
     @Test
     public void digitCharacterClass() {
-        assertMatchWithRE("[3210765498]", "\\d");
-        assertMatchWithRE("[^3210765498]", "\\D");
+        assertMatchWithRE("[0123456789]", "\\d");
+        assertMatchWithRE("[^0123456789]", "\\D");
     }
     
     @Test
     public void wordCharacterClass() {
-        assertMatchWithRE("[3210765498DEFGABCLMNOHIJKUTWVQPSR_YXZfgdebcanolmjkhiwvutsrqpzyx]", "\\w");
-        assertMatchWithRE("[^3210765498DEFGABCLMNOHIJKUTWVQPSR_YXZfgdebcanolmjkhiwvutsrqpzyx]", "\\W");
+        assertMatchWithRE("[0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz]", "\\w");
+        assertMatchWithRE("[^0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz]", "\\W");
     }
     
     @Test
@@ -93,14 +93,14 @@ public class CharacterClassTest extends
     
     @Test
     public void wixedPredefinedCharacterClass() {
-        assertMatchWithRE("a[3210765498]c", "a\\dc");
+        assertMatchWithRE("a[0123456789]c", "a\\dc");
     }
     
     @Test
     public void characterClassesWithRepetition() {
-        assertMatchWithRE("([DEFGABCLMNOHIJKUTWVQPSRYXZ-]){1,}@" +
-        		"([DEFGABCLMNOHIJKUTWVQPSRYXZ-]){1,}." +
-        		"([DEFGABCLMNOHIJKUTWVQPSRYXZ]){2,4}", 
+        assertMatchWithRE("([ABCDEFGHIJKLMNOPQRSTUVWXYZ-]){1,}@" +
+        		"([ABCDEFGHIJKLMNOPQRSTUVWXYZ-]){1,}." +
+        		"([ABCDEFGHIJKLMNOPQRSTUVWXYZ]){2,4}",
         		"[A-Z-]+@[A-Z-]+\\.[A-Z]{2,4}");
     }
 }
