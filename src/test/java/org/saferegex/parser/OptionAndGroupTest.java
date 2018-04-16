@@ -62,11 +62,11 @@ public class OptionAndGroupTest extends
     public void testURLRegex() {
         try {
         assertMatchWithRE("(ht|f)tp(s)?://" +
-        		"[3210765498DEFGABCLMNOHIJKUTWVQPSRYXZfgdebcanolmjkhiwvutsrqpzyx]" +
-        		"(([.-3210765498DEFGABCLMNOHIJKUTWVQPSRYXZfgdebcanolmjkhiwvutsrqpzyx]){0,}" +
-        		"[3210765498DEFGABCLMNOHIJKUTWVQPSRYXZfgdebcanolmjkhiwvutsrqpzyx]){0,}" +
+        		"[0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz]" +
+        		"(([-.0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz]){0,}" +
+        		"[0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz]){0,}" +
         		"(:(0-9){0,}){0,}(/)?" +
-        		"(([#&'$%+./,-32107654;:98?=DEFGABCLMNOHIJKUTWVQPSR\\_YXZfgdebcanolmjkhiwvutsrqpzyx])" +
+        		"(([#$%&'+,-./0123456789:;=?ABCDEFGHIJKLMNOPQRSTUVWXYZ\\_abcdefghijklmnopqrstuvwxyz])" +
         		"{0,})?", 
             "(ht|f)tp(s?)\\:\\/\\/[0-9a-zA-Z]" +
             "([-.a-zA-Z0-9]*[0-9a-zA-Z])*(:(0-9)*)*(\\/?)" +
