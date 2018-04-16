@@ -11,7 +11,7 @@ public class OptionalTest {
     
     @Test
     public void optionalSequenceSample() {
-        assertEquals("[, d]", 
+        assertEquals("[d, ]",
             Optional.term(Atom.of("d")).samples(strategy).toString());
         Sequence s = Sequence.of(Atom.of("abc"), 
             Optional.term(Atom.of("d")));

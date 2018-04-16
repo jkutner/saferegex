@@ -18,7 +18,7 @@ public class OptionTest {
     
     @Test
     public void optionSample() {
-        assertEquals("[ef, d]", option.samples(strategy).toString());
+        assertEquals("[d, ef]", option.samples(strategy).toString());
     }
 
     @Test
