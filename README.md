@@ -1,4 +1,4 @@
-# SafeRegex
+# SafeRegex [![Build Status](https://travis-ci.org/jkutner/saferegex.svg?branch=master)](https://travis-ci.org/jkutner/saferegex)
 
 SafeRegex is a tool that tests regular expressions for [ReDoS](https://www.owasp.org/index.php/Regular_expression_Denial_of_Service_-_ReDoS) 
 vulnerabilities. In contrast to similar tools, SafeRegex doesn't use plain fuzzing to detect vulnerabilites but uses an 
