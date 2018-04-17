@@ -27,8 +27,6 @@ public class RegexTester {
         } catch(Throwable e) {
             System.out.println("A system error occured: " +
                 (e.getMessage() != null ? e.getMessage() : e.getClass().toString()));
-        } finally {
-            System.exit(0);
         }
     }
 
