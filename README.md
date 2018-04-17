@@ -6,10 +6,16 @@ approach similar to model checking. This makes it much more effective than plain
 
 ## Usage
 
-Run the executable JAR against an [evil regex](https://www.owasp.org/index.php/Regular_expression_Denial_of_Service_-_ReDoS):
+Build the executable JAR:
 
 ```sh-session
-$ java -jar saferegex.jar "(a|aa)+"
+$ ./mvnw clean package
+```
+
+Run the JAR against an [evil regex](https://www.owasp.org/index.php/Regular_expression_Denial_of_Service_-_ReDoS):
+
+```sh-session
+$ java -jar target/tsaferegex.jar "(a|aa)+"
                           
 Testing: (a|aa)+
 More than 10000 samples found.
@@ -21,7 +27,7 @@ Sample input: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
 Or a safe regex:
 
 ```sh-session
-$ java -jar saferegex.jar "(ht|f)tp(s?)\:\/\/[0-9a-zA-Z]([-.a-zA-Z_]*[0-9a-zA-Z])*(:(0-9)*)?(\/?)([a-zA-Z0-9\-\.\?\,\:\'\/\\\+=&amp;%\$#_]*)?"
+$ java -jar target/saferegex.jar "(ht|f)tp(s?)\:\/\/[0-9a-zA-Z]([-.a-zA-Z_]*[0-9a-zA-Z])*(:(0-9)*)?(\/?)([a-zA-Z0-9\-\.\?\,\:\'\/\\\+=&amp;%\$#_]*)?"
 
 Testing: (ht|f)tp(s?)\:\/\/[0-9a-zA-Z]([-.a-zA-Z_]*[0-9a-zA-Z])*(:(0-9)*)?(\/?)([a-zA-Z0-9\-\.\?\,\:\'\/\\\+=&amp;%\$#_]*)?
 More than 10000 samples found.
