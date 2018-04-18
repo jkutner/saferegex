@@ -32,8 +32,8 @@ set -e
 # </profiles>
 
 
-./mvnw release:clean release:prepare -DdryRun
+./mvnw release:clean release:prepare -DdryRun -Darguments="-DskipTests"
 
-./mvnw release:clean release:prepare
+./mvnw release:clean release:prepare -Darguments="-DskipTests"
 
-./mvnw release:perform
+./mvnw release:perform -Darguments="-DskipTests"
