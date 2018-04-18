@@ -38,6 +38,15 @@ Broken samples: 0
 This expression is probably not vulnerable for sample sizes < 10000
 ```
 
+### Usage as a dependency
+
+```xml
+<dependency>
+    <groupId>com.github.jkutner</groupId>
+    <artifactId>saferegex</artifactId>
+</dependency>
+```
+
 ## History
 
 The project was created on Feb 16, 2011 by Sebastian Kübeck and hosted on [Google Code](https://code.google.com/archive/p/saferegex/). This project has
