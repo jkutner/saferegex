@@ -15,7 +15,7 @@ $ ./mvnw clean package
 Run the JAR against an [evil regex](https://en.wikipedia.org/wiki/ReDoS#Malicious_regexes):
 
 ```sh-session
-$ java -jar target/tsaferegex.jar "(a|aa)+"
+$ java -jar target/saferegex.jar "(a|aa)+"
 
 Testing: (a|aa)+
 More than 10000 samples found.
