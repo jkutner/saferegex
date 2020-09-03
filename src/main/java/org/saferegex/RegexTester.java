@@ -1,5 +1,7 @@
 package org.saferegex;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
@@ -17,11 +19,18 @@ public class RegexTester {
 
     public static void main(String[] args) {
         try {
+            String regexToTest;
             if(args.length < 1) {
-                System.out.println("Usage: java -jar saferegex.jar <regular expression>");
-                System.exit(1);
+                //Enter data using BufferReader
+                System.out.println("Enter regex to test:");
+                BufferedReader reader =
+                        new BufferedReader(new InputStreamReader(System.in));
+                // Reading data using readLine
+                regexToTest = reader.readLine();
+            } else {
+                regexToTest = args[0];
             }
-            test(args[0], MAX_SAMPLE_SIZE);
+            test(regexToTest, MAX_SAMPLE_SIZE);
         } catch(PatternSyntaxException e) {
             System.out.println(e.getMessage());
         } catch(Throwable e) {
@@ -85,7 +94,7 @@ public class RegexTester {
                 return "This expression is probably not vulnerable for sample sizes < " + 
                     maxSampleLength;
             } else {
-                return "Cannot tell wether this expression is vulnerable or not.";
+                return "Cannot tell whether this expression is vulnerable or not.";
             }
         }
     }
