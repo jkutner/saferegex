@@ -31,12 +31,14 @@ public class RegexTester {
                 regexToTest = args[0];
             }
             test(regexToTest, MAX_SAMPLE_SIZE);
+            System.exit(0);
         } catch(PatternSyntaxException e) {
             System.out.println(e.getMessage());
         } catch(Throwable e) {
             System.out.println("A system error occured: " +
                 (e.getMessage() != null ? e.getMessage() : e.getClass().toString()));
         }
+        System.exit(1);
     }
 
     public static boolean isVulnerable(String regex) {
