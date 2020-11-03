@@ -4,7 +4,7 @@
   <groupId>com.github.jkutner</groupId>
   <artifactId>saferegex</artifactId>
   <packaging>jar</packaging>
-  <version>1.0.1</version>
+  <version>1.0.2-SNAPSHOT</version>
   <name>saferegex</name>
   <description>saferegex is a tool for testing regular expressions for ReDoS vulnerabilities.</description>
 
@@ -26,7 +26,7 @@
     <url>https://github.com/jkutner/saferegex</url>
     <connection>scm:git:git@github.com:jkutner/saferegex.git</connection>
     <developerConnection>scm:git:git@github.com:jkutner/saferegex.git</developerConnection>
-    <tag>saferegex-1.0.1</tag>
+    <tag>HEAD</tag>
   </scm>
   <developers>
     <developer>
