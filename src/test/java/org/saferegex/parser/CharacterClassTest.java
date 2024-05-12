@@ -1,5 +1,6 @@
 package org.saferegex.parser;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
@@ -102,5 +103,11 @@ public class CharacterClassTest extends
         		"([ABCDEFGHIJKLMNOPQRSTUVWXYZ-]){1,}." +
         		"([ABCDEFGHIJKLMNOPQRSTUVWXYZ]){2,4}",
         		"[A-Z-]+@[A-Z-]+\\.[A-Z]{2,4}");
+    }
+
+    @Test
+    public void characterClassWithLiteralRangeSymbol() {
+        Expression expr = ExpressionParser.parse(new Source("[a-]"));
+        assertEquals("[a-]", expr.toString());
     }
 }

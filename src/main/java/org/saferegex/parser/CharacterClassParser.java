@@ -35,7 +35,8 @@ public class CharacterClassParser {
             		set.add(EscapeCharacterScanner.unescapeCurrent(source));
             	}
             } else if (source.length() >= 3
-                    && source.charAt(1) == '-') {
+                    && source.charAt(1) == '-'
+                    && source.charAt(2) != ']') {
                 set.addAll(parseRange(source));
             } else {
                 set.add(source.consumeNextChar());
